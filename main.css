@@ -6,6 +6,17 @@ h1 {
     font-family: Superthin;
 /*    font: Open-sans;*/
     color: white;   
+    font-size: 100px;
+    text-align: center;
+    letter-spacing: 7px;
+}
+
+img {
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 @font-face {
