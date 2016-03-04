@@ -1,9 +1,14 @@
 body {
-    background-color: black   
+    background-color: black 
 }
 
 h1 {
-    font-family: sans-serif;
-    font: Open;
+    font-family: Superthin;
+/*    font: Open-sans;*/
     color: white;   
+}
+
+@font-face {
+    font-family: 'Superthin';
+    src: url("./superthin.ttf");
 }
