@@ -17,7 +17,12 @@ img {
     margin-right: auto;
     margin-top: 0;
     margin-bottom: 0;
+    
+    display: block;
+    margin: 0 auto;
 }
+
+
 
 @font-face {
     font-family: 'Superthin';
