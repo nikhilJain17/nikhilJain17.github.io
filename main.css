@@ -22,7 +22,22 @@ img {
     margin: 0 auto;
 }
 
+button {
+    background-color: black;
+    color: white;
+    border-style: solid;
+    padding: 10px;
+    font-family: Superthin;
+    font-size: 20px;
+    display: inline-block;
+    border-color: white;
+}
 
+button:hover {
+    background-color:white;
+    color: black;
+/*    border: none; */
+}
 
 @font-face {
     font-family: 'Superthin';
