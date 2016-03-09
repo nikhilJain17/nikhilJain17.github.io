@@ -1,8 +1,11 @@
-
-
+/*whats up*/
 
 body {
     background-color: black 
+}
+
+#project {
+    
 }
 
 #particles-js{
@@ -23,6 +26,17 @@ h1 {
     font-size: 100px;
     text-align: center;
     letter-spacing: 7px;
+}
+
+p {
+    font-family: MediumThick;
+    color: white;
+    text-align: justify;
+    padding: 40px;
+}
+
+a {
+    color:cornsilk;
 }
 
 img {
@@ -47,7 +61,7 @@ div {
 button {
     margin: 10px;
     background-color: black;
-    color: white;
+    color: cornsilk;
     border-style: solid;
     padding: 10px;
     font-family: Superthin;
@@ -65,4 +79,9 @@ button:hover {
 @font-face {
     font-family: 'Superthin';
     src: url("./superthin.ttf");
+}
+
+@font-face {
+    font-family: 'MediumThick';
+    src: url("./medium.ttf");
 }
