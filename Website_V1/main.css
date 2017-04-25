@@ -1,0 +1,122 @@
+/*whats up*/
+
+body {
+    background-color: black 
+}
+
+#projectimg {
+    float: left;
+    padding-right: 20px;
+}
+
+#projectpara {
+/*    float: right;*/
+    padding-right: 70px;
+    font-size: 20px;
+}
+
+div {
+    text-align: center;
+    z-index: 1; 
+    position: absolute;
+    width: 100%;
+/*    stack the divs!  */
+}
+
+#project {
+    align-self: center;
+    width: 100%;
+    height: 400px;
+    text-align: justify;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #EEEEEE;
+    position: relative;
+
+/*    display: inline-block;*/
+}
+
+#particles-js{
+    position: absolute;
+    z-index: 0;
+    width: 100%
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+h1 {
+    font-family: Superthin;
+    font: Open-sans;
+    color: white;   
+    font-size: 100px;
+    text-align: center;
+    letter-spacing: 7px;
+}
+
+h2 {
+    font-family: Superthin;
+    font: Open-sans;
+    color: white;   
+    font-size: 40px;
+/*    text-align: center;*/
+    letter-spacing: 7px;
+}
+
+p {
+    font-family: MediumThick;
+    color: white;
+    text-align: justify;
+    padding: 40px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 150%;
+}
+
+a {
+    color: black;
+}
+
+#img-pic {
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+/*    color: black*/
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+button {
+    margin: 10px;
+    background-color: black;
+    color: cornsilk;
+    border-style: solid;
+    padding: 10px;
+    font-family: Superthin;
+    font-size: 20px;
+    display: inline-block;
+    border-color: white;
+}
+
+button:hover {
+    background-color:white;
+    color: black;
+/*    border: none; */
+}
+
+@font-face {
+    font-family: 'Superthin';
+    src: url("./superthin.ttf");
+}
+
+@font-face {
+    font-family: 'MediumThick';
+    src: url("./medium.ttf");
+}
