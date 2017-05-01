@@ -1,10 +1,23 @@
 
 h3 {
-	color: #FFE552; 
+	color: #ffff00; 
 	font-family: 'VT323', 
 	monospace; font-size: 2em;
 	margin-left: 70px;
 	margin-right: 70px;
+}
+
+h4 {
+	color: #ffff00; 
+	font-family: 'VT323', 
+	monospace; font-size: 2.5em;
+	margin-left: 70px;
+	margin-right: 70px;
+
+}
+
+a:hover h4:before {
+	content: '> ';
 }
 
 h1 {
@@ -16,7 +29,7 @@ h1 {
 }
 
 p {
-font-family: 'Lato', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-size: 1.25em;
 	margin-left: 70px;
 	margin-right: 70px;
@@ -34,6 +47,15 @@ table {
 	border: 1px  ;
 }
 
+a {	
+	font-family: 'Lato', sans-serif;
+	font-size: 1.25em;
+	margin-bottom: 5%;
+	color: #003262; 	
+	letter-spacing: 1px;
+	line-height: 1.6em;
+	text-decoration: none;
+}
 tr {
 	font-weight: normal;
 	font-family: 'Lato', sans-serif;
@@ -45,3 +67,25 @@ tr {
 	letter-spacing: 1px;
 	line-height: 1.6em;
 }
+
+.highlight {
+	color: #FF5714;
+}
+
+.boxed {
+	border: 1px solid #aaaaaa;
+}
+
+img {
+	margin-left: 7%;
+	width: 64px;
+	height: 64px;
+	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+	filter: grayscale(100%);
+
+}
+
+
+
+
+
