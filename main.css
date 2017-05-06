@@ -79,7 +79,29 @@ img {
 
 }
 
+ul {
+	list-style-type: none;
+	margin-left: 30px;
+}
 
+li {
+	font-weight: normal;
+	font-family: 'Lato', sans-serif;
+	color: #003262; 
+	font-size: 1.25em;	
+	margin-top: 20px;
+	margin-bottom: 20px;
+	line-height: 1.6em;	
+	letter-spacing: 1px;
+	line-height: 1.6em;
+
+}
+
+.ptitle {
+	font-size: 1.3em;
+	/*color: #FF5714;*/
+
+}
 
 
 
