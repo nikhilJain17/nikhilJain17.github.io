@@ -2,15 +2,13 @@
 h2 {
 	color: #ffff00; 
 	font-family: 'VT323', 
-	monospace; 
-	font-size: 10px;
+	monospace; font-size: 2em;
 	margin-left: 70px;
 	margin-right: 70px;
-}
-h3 {
+}h3 {
 	color: #ffff00; 
 	font-family: 'VT323', 
-	monospace; font-size: 15px;
+	monospace; font-size: 2em;
 	margin-left: 70px;
 	margin-right: 70px;
 }
@@ -18,7 +16,7 @@ h3 {
 h4 {
 	color: #ffff00; 
 	font-family: 'VT323', 
-	monospace; font-size: 1.5em;
+	monospace; font-size: 2.5em;
 	margin-left: 70px;
 	margin-right: 70px;
 
@@ -41,17 +39,8 @@ p {
 	font-size: 1.25em;
 	margin-left: 70px;
 	margin-right: 70px;
-	line-height:1.6em;
-	color: #003262; 	
-	letter-spacing: 1px;
-	line-height: 1.6em;
-}
-
-b {
-	font-family: 'Lato', sans-serif;
-	font-size: 1.25em;
-	margin-left: 70px;
-	margin-right: 70px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 	line-height:1.6em;
 	color: #003262; 	
 	letter-spacing: 1px;
@@ -64,11 +53,10 @@ table {
 	border: 1px  ;
 }
 
-/* a {	
+a {	
 	text-decoration: none;
-} */
-
-/* tr {
+}
+tr {
 	font-weight: normal;
 	font-family: 'Lato', sans-serif;
 	color: #003262; 
@@ -78,7 +66,7 @@ table {
 	line-height: 1.6em;	
 	letter-spacing: 1px;
 	line-height: 1.6em;
-} */
+}
 
 .highlight {
 	color: #FF5714;
