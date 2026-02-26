@@ -1,0 +1,16 @@
+/* Make content wider */
+.main, .post-content {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+html {
+  font-size: 18px;   /* default is usually 16px */
+}
+
+.profile-pic {
+  width: 160px;
+  display: block;
+  margin: 0 auto 25px auto;
+}

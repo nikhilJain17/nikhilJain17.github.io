@@ -1,0 +1,30 @@
+title = "Nikhil Jain"
+baseURL = "https://nikhiljain17.github.io/"
+languageCode = "en-us"
+theme = "PaperMod"
+
+[author]
+name = "Nikhil Jain"
+
+[params]
+author = "Nikhil Jain"
+
+# set up menu
+[[menu.main]]
+name = "Notes"
+url = "/notes/"
+weight = 1
+
+[[menu.main]]
+name = "Papers"
+url = "/papers/"
+weight = 2
+
+[[menu.main]]
+name = "Projects"
+url = "/projects/"
+weight = 3
+
+# load external css
+[params.assets]
+customCSS = ["css/extended.css"]
