@@ -9,9 +9,15 @@ html {
   font-size: 18px;   /* default is usually 16px */
 }
 
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
 .profile-pic {
-  width: 100px;
+  width: 120px;
   border-radius: 50%;
-  float: right;
-  margin: 0 0 16px 24px;
+  flex-shrink: 0;
 }
