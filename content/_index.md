@@ -6,11 +6,11 @@ title: "About"
   <img src="/images/profile.jpg" alt="Nikhil Jain" class="profile-pic" />
   <div class="profile-info">
     <h1>Nikhil Jain</h1>
-    <p>I’m a software engineer focused on systems and inference, currently pursuing an M.S. in Computer Science at UC Santa Cruz. I completed my B.A. in Computer Science at UC Berkeley and previously worked in industry on large-scale systems and infrastructure.</p>
-    <p>
+    <p>I’m a software engineer focused on systems and inference, currently pursuing an M.S. in Computer Science at UC Santa Cruz. I completed my B.A. in Computer Science at UC Berkeley and previously worked in industry on large-scale systems and infrastructure.
+    
     I’ve worked at Uber on distributed systems for maps and search, at SambaNova Systems on compiler infrastructure for AI hardware, and at Microsoft on the C++ linker team.
-    </p><p>
-    My current work centers on LLM inference systems, including contributions to the llama.cpp WebGPU runtime and tinyLLM, a lightweight engine exploring the performance and memory bottlenecks of modern inference.</p>
+ 
+     My current work centers on LLM inference systems, including contributions to the llama.cpp WebGPU runtime and tinyLLM, a lightweight engine exploring the performance and memory bottlenecks of modern inference.</p>
 
     <div class="social-links">
       <a href="https://github.com/nikhilJain17" target="_blank" aria-label="GitHub">
