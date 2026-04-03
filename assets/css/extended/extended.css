@@ -1,8 +1,3 @@
-/* Force white background */
-body, .main {
-  background-color: #ffffff !important;
-}
-
 /* Make content wider */
 .main, .post-content {
     max-width: 80%;
