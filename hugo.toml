@@ -16,14 +16,12 @@ url = "/notes/"
 weight = 1
 
 [[menu.main]]
-name = "Papers"
-url = "/papers/"
-weight = 2
-
-[[menu.main]]
 name = "Projects"
 url = "/projects/"
 weight = 3
+
+[markup.goldmark.renderer]
+unsafe = true
 
 # load external css
 [params.assets]
