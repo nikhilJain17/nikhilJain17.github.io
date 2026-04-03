@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-![Nikhil](/images/profile.jpg)
+<img src="/images/profile.jpg" alt="Nikhil Jain" class="profile-pic" />
 
 # Nikhil Jain
 

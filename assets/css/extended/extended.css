@@ -10,7 +10,8 @@ html {
 }
 
 .profile-pic {
-  width: 160px;
-  display: block;
-  margin: 0 auto 25px auto;
+  width: 100px;
+  border-radius: 50%;
+  float: right;
+  margin: 0 0 16px 24px;
 }
