@@ -21,6 +21,7 @@ function App() {
   const chatContainerRef = useRef(null);
 
   // Model loading and progress
+  const [dtype, setDtype] = useState("q4f16");
   const [status, setStatus] = useState(null);
   const [error, setError] = useState(null);
   const [loadingMessage, setLoadingMessage] = useState("");
@@ -266,10 +267,25 @@ function App() {
               </div>
             )}
 
+            <div className="flex items-center gap-3 mb-3">
+              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Precision:
+              </label>
+              <select
+                className="border rounded-md px-2 py-1 text-sm bg-white dark:bg-gray-800 dark:border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                value={dtype}
+                disabled={status !== null}
+                onChange={(e) => setDtype(e.target.value)}
+              >
+                <option value="q4f16">q4f16 — quantized, ~1 GB</option>
+                <option value="fp16">fp16 — full precision, ~2.5 GB</option>
+              </select>
+            </div>
+
             <button
               className="border px-4 py-2 rounded-lg bg-blue-400 text-white hover:bg-blue-500 disabled:bg-blue-100 disabled:cursor-not-allowed select-none"
               onClick={() => {
-                worker.current.postMessage({ type: "load" });
+                worker.current.postMessage({ type: "load", data: { dtype } });
                 setStatus("loading");
               }}
               disabled={status !== null || error !== null}

@@ -11,13 +11,13 @@ import {
 class TextGenerationPipeline {
   static model_id = "onnx-community/Llama-3.2-1B-Instruct-ONNX";
 
-  static async getInstance(progress_callback = null) {
+  static async getInstance(progress_callback = null, dtype = "q4f16") {
     this.tokenizer ??= AutoTokenizer.from_pretrained(this.model_id, {
       progress_callback,
     });
 
     this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
-      dtype: "q4f16",
+      dtype,
       device: "webgpu",
       progress_callback,
     });
@@ -117,7 +117,7 @@ async function check() {
   }
 }
 
-async function load() {
+async function load({ dtype = "q4f16" } = {}) {
   self.postMessage({
     status: "loading",
     data: "Loading model...",
@@ -128,7 +128,7 @@ async function load() {
     // We also add a progress callback to the pipeline so that we can
     // track model loading.
     self.postMessage(x);
-  });
+  }, dtype);
 
   self.postMessage({
     status: "loading",
@@ -150,7 +150,7 @@ self.addEventListener("message", async (e) => {
       break;
 
     case "load":
-      load();
+      load(data);
       break;
 
     case "generate":
