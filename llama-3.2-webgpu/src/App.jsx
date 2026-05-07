@@ -30,12 +30,17 @@ function App() {
   // Inputs and outputs
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
-  const [tps, setTps] = useState(null);
   const [numTokens, setNumTokens] = useState(null);
+  const [numInputTokens, setNumInputTokens] = useState(null);
+  const [prefillTps, setPrefillTps] = useState(null);
+  const [decodeTps, setDecodeTps] = useState(null);
 
   function onEnter(message) {
     setMessages((prev) => [...prev, { role: "user", content: message }]);
-    setTps(null);
+    setNumTokens(null);
+    setNumInputTokens(null);
+    setPrefillTps(null);
+    setDecodeTps(null);
     setIsRunning(true);
     setInput("");
   }
@@ -109,6 +114,7 @@ function App() {
         case "start":
           {
             // Start generation
+            setNumInputTokens(e.data.numInputTokens);
             setMessages((prev) => [
               ...prev,
               { role: "assistant", content: "" },
@@ -119,10 +125,10 @@ function App() {
         case "update":
           {
             // Generation update: update the output text.
-            // Parse messages
-            const { output, tps, numTokens } = e.data;
-            setTps(tps);
+            const { output, numTokens, prefillTps, decodeTps } = e.data;
             setNumTokens(numTokens);
+            setPrefillTps(prefillTps);
+            if (decodeTps !== undefined) setDecodeTps(decodeTps);
             setMessages((prev) => {
               const cloned = [...prev];
               const last = cloned.at(-1);
@@ -136,8 +142,14 @@ function App() {
           break;
 
         case "complete":
-          // Generation complete: re-enable the "Generate" button
-          setIsRunning(false);
+          {
+            // Generation complete: re-enable the "Generate" button
+            const { numTokens, prefillTps, decodeTps } = e.data;
+            setNumTokens(numTokens);
+            setPrefillTps(prefillTps);
+            if (decodeTps !== undefined) setDecodeTps(decodeTps);
+            setIsRunning(false);
+          }
           break;
 
         case "error":
@@ -171,7 +183,6 @@ function App() {
       // Do not update if the last message is from the assistant
       return;
     }
-    setTps(null);
     worker.current.postMessage({ type: "generate", data: messages });
   }, [messages, isRunning]);
 
@@ -304,35 +315,49 @@ function App() {
             </div>
           )}
           <p className="text-center text-sm min-h-6 text-gray-500 dark:text-gray-300">
-            {tps && messages.length > 0 && (
+            {prefillTps && messages.length > 0 && (
               <>
-                {!isRunning && (
-                  <span>
-                    Generated {numTokens} tokens in{" "}
-                    {(numTokens / tps).toFixed(2)} seconds&nbsp;&#40;
-                  </span>
-                )}
-                {
+                {isRunning ? (
                   <>
-                    <span className="font-medium text-center mr-1 text-black dark:text-white">
-                      {tps.toFixed(2)}
-                    </span>
-                    <span className="text-gray-500 dark:text-gray-300">
-                      tokens/second
-                    </span>
+                    <span className="font-medium text-black dark:text-white">
+                      Prefill:
+                    </span>{" "}
+                    {prefillTps.toFixed(1)} tok/s ({numInputTokens} tokens)
+                    {decodeTps !== null && (
+                      <>
+                        &nbsp;&nbsp;
+                        <span className="font-medium text-black dark:text-white">
+                          Decode:
+                        </span>{" "}
+                        {decodeTps.toFixed(1)} tok/s
+                      </>
+                    )}
                   </>
-                }
-                {!isRunning && (
+                ) : (
                   <>
-                    <span className="mr-1">&#41;.</span>
-                    <span
-                      className="underline cursor-pointer"
-                      onClick={() => {
-                        worker.current.postMessage({ type: "reset" });
-                        setMessages([]);
-                      }}
-                    >
-                      Reset
+                    <span>
+                      Generated {numTokens} tokens&nbsp;&mdash;&nbsp;
+                    </span>
+                    <span className="font-medium text-black dark:text-white">
+                      Prefill:
+                    </span>{" "}
+                    {prefillTps.toFixed(1)} tok/s&nbsp;&#124;&nbsp;
+                    <span className="font-medium text-black dark:text-white">
+                      Decode:
+                    </span>{" "}
+                    {decodeTps !== null ? decodeTps.toFixed(1) : "—"} tok/s
+                    <span className="ml-2">
+                      &nbsp;&#40;
+                      <span
+                        className="underline cursor-pointer"
+                        onClick={() => {
+                          worker.current.postMessage({ type: "reset" });
+                          setMessages([]);
+                        }}
+                      >
+                        Reset
+                      </span>
+                      &#41;
                     </span>
                   </>
                 )}

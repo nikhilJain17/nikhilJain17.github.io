@@ -38,22 +38,29 @@ async function generate(messages) {
     return_dict: true,
   });
 
-  let startTime;
+  const numInputTokens = inputs.input_ids.dims[1];
+  let generateCallTime;
+  let firstTokenTime;
   let numTokens = 0;
-  let tps;
+  let prefillTps;
+  let decodeTps;
   const token_callback_function = () => {
-    startTime ??= performance.now();
-
-    if (numTokens++ > 0) {
-      tps = (numTokens / (performance.now() - startTime)) * 1000;
+    if (firstTokenTime === undefined) {
+      firstTokenTime = performance.now();
+      prefillTps = (numInputTokens / (firstTokenTime - generateCallTime)) * 1000;
+    }
+    numTokens++;
+    if (numTokens >= 2) {
+      decodeTps = ((numTokens - 1) / (performance.now() - firstTokenTime)) * 1000;
     }
   };
   const callback_function = (output) => {
     self.postMessage({
       status: "update",
       output,
-      tps,
       numTokens,
+      prefillTps,
+      decodeTps,
     });
   };
 
@@ -65,8 +72,9 @@ async function generate(messages) {
   });
 
   // Tell the main thread we are starting
-  self.postMessage({ status: "start" });
+  self.postMessage({ status: "start", numInputTokens });
 
+  generateCallTime = performance.now();
   const { past_key_values, sequences } = await model.generate({
     ...inputs,
     past_key_values: past_key_values_cache,
@@ -89,6 +97,9 @@ async function generate(messages) {
   self.postMessage({
     status: "complete",
     output: decoded,
+    numTokens,
+    prefillTps,
+    decodeTps,
   });
 }
 
