@@ -6,8 +6,9 @@ title: "About"
   <img src="/images/profile.jpg" alt="Nikhil Jain" class="profile-pic" />
   <div class="profile-info">
     <h1>Nikhil Jain</h1>
-    <p>I’m a software engineer at Modular (acquired by Qualcomm) on the MAX inference engine. I am pursuing an M.S. in Computer Science at UC Santa Cruz, where I contributed to the <a href="https://arxiv.org/abs/2605.20706" target="_blank">llama.cpp inference engine's WebGPU runtime</a>. I completed my B.A. in Computer Science at UC Berkeley and was a software engineer at Sambanova Systems and Uber for several years between my undergrad and master's degrees.</p>
-    <p>We wrote that work up in <a href="https://arxiv.org/abs/2605.20706" target="_blank">Llamas on the Web</a>, a paper on running LLMs in the browser with WebGPU.</p>
+    <p>I’m a software engineer at <a href="https://www.modular.com/">Modular (acquired by Qualcomm)</a> on the MAX inference engine.</p>
+    <p>I am pursuing an M.S. in Computer Science at UC Santa Cruz, where I contributed to the llama.cpp inference engine's WebGPU runtime: (<a href="https://github.com/ggml-org/llama.cpp/tree/master/ggml/src/ggml-webgpu">code</a>, <a href="https://arxiv.org/abs/2605.20706">arxiv paper</a>)</p>
+    <p>I completed my B.A. in Computer Science at UC Berkeley and was a software engineer at Sambanova Systems and Uber for several years between my undergrad and master's degrees.</p>
     <p>I’ve worked at Uber on large-scale distributed systems for maps and search, at SambaNova Systems on a compiler for AI hardware, and at Microsoft on the C++ linker team.</p>
     <div class="social-links">
       <a href="https://github.com/nikhilJain17" target="_blank" aria-label="GitHub">
