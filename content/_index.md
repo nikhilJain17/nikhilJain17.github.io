@@ -6,9 +6,9 @@ title: "About"
   <img src="/images/profile.jpg" alt="Nikhil Jain" class="profile-pic" />
   <div class="profile-info">
     <h1>Nikhil Jain</h1>
-    <p>I’m a software engineer currently pursuing an M.S. in Computer Science at UC Santa Cruz focused on LLM inference. I completed my B.A. in Computer Science at UC Berkeley and was in the industry for several years.</p>
+    <p>I’m a software engineer at Modular (acquired by Qualcomm) on the MAX inference engine. I am pursuing an M.S. in Computer Science at UC Santa Cruz, where I contributed to the <a href="https://arxiv.org/abs/2605.20706" target="_blank">llama.cpp inference engine's WebGPU runtime</a>. I completed my B.A. in Computer Science at UC Berkeley and was a software engineer at Sambanova Systems and Uber for several years between my undergrad and master's degrees.</p>
+    <p>We wrote that work up in <a href="https://arxiv.org/abs/2605.20706" target="_blank">Llamas on the Web</a>, a paper on running LLMs in the browser with WebGPU.</p>
     <p>I’ve worked at Uber on large-scale distributed systems for maps and search, at SambaNova Systems on a compiler for AI hardware, and at Microsoft on the C++ linker team.</p>
-    <p>I am currently contributing to the llama.cpp WebGPU runtime and creating tinyLLM, a lightweight inference engine.</p>
     <div class="social-links">
       <a href="https://github.com/nikhilJain17" target="_blank" aria-label="GitHub">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
