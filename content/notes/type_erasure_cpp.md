@@ -32,16 +32,19 @@ std::unordered_map<StageKey, Stage> pipeline_stages;
 ```
 C++ maps are not like Python dicts, in that all keys and all values must be of the same type declared at compile time. This is since the elements in a container must be of the same size.
 
-But `Stage` is a parameterized type! So a `Stage<Token, ProcessedToken>` is a different type than a `Stage<Transaction, Balance>`, and both cannot be stored in the same container. 
+But `Stage` is a parameterized type! So a `Stage<Token, ProcessedToken>` is a different type than a `Stage<Transaction, Balance>`, and both cannot be stored in the same container, since they are of different sizes! 
 
 Then how do we store `Stage`s in our map?
 
 ## The solution
-The solution is type erasure. We want to unify the different `Stage<In, Out>` values under a single interface that has no concept of the type parameters `In` and `Out`. How do we do this?
+The solution is type erasure. We want to unify the different `Stage<In, Out>` values under a single interface that has no concept of the type parameters `In` and `Out`, and then somehow store this base type in a container while being able to fetch the parameterized type information when desired. How do we do this?
 
 This is done in two steps. First, we must unify stages under a common interface that has no reference to `In` or `Out` types.
 
 ### 1. A type erased interface
+
+We declare an abstract `IStage` class that defines an interface for `Stage`s, but with no type information. 
+
 ```C++
 class IStage {
 public:
@@ -53,9 +56,7 @@ public:
 
 We have to modify `calculate()` to no longer return an `Out` and no longer take an `In`. Otherwise this wouldn't be type erased and we would still have the same problem!
 
-So instead, we refactor `calculate()` to mutate an external `Context` which stores inputs and outputs of stages. Each `Stage<In,Out>::calculate` gets its own body containing its own `any_cast<const In&>` and its own call through `func`. The types move out of the signature and into the body.
-
-This way, our `IStage` can be free of types.
+So instead, we refactor `calculate()` to mutate an external `Context` which stores inputs and outputs of stages. Each `Stage<In,Out>::calculate` gets its own body containing its own `any_cast<const In&>` and its own call through `func`. The types move out of the signature and into the body. This way, our `IStage` can be free of types.
 
 Then, we can implement Stage as a subclass of our interface class.
 ```C++
@@ -169,3 +170,6 @@ We also call functions indirectly which incurs some vtable lookup overhead. Also
 
 ### Conclusion
 We saw how we can use type erasure to store heterogeneous types in the same container. We also saw how we can abstract away type parameters in a base type, and use dynamic dispatch to reach the concrete type's implementation.
+
+### AI Disclosure
+Code and blog post written by me, both lightly edited with Claude for correctness.
