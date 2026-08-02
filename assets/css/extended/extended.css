@@ -47,3 +47,30 @@ html {
   height: 24px;
   display: block;
 }
+
+/* Callout box, used by the {{< aside >}} shortcode */
+.callout {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--secondary);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+
+.callout-title {
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+
+.callout-body > *:first-child {
+  margin-top: 0;
+}
+
+.callout-body > *:last-child {
+  margin-bottom: 0;
+}
