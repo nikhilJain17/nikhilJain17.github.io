@@ -1,0 +1,9 @@
+{{- $title := .Get "title" | default "An aside" -}}
+<aside class="callout">
+  {{- with $title }}
+  <div class="callout-title">{{ . | markdownify }}</div>
+  {{- end }}
+  <div class="callout-body">
+    {{- .Inner | markdownify -}}
+  </div>
+</aside>
