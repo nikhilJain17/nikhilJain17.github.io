@@ -1,6 +1,6 @@
 +++
 date = '2026-10-20T15:35:25-07:00'
-draft = true 
+draft = false
 title = 'Reducing Memory Usage for Llama.cpp in the Browser'
 summary = 'Streaming weights to reduce memory usage'
 tags = ['webgpu', 'llama.cpp', 'wllama', 'perf']
