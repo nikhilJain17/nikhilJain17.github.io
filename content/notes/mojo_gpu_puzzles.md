@@ -1,5 +1,5 @@
 +++
-date = '2026-11-15T15:35:25-07:00'
+date = '2026-11-15T00:00:00-08:00'
 draft = false 
 title = 'Some notes from Mojo GPU Puzzles'
 summary = 'Working through Mojo GPU puzzles'
