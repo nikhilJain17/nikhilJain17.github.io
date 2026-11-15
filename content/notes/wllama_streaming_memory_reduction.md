@@ -15,7 +15,7 @@ One challenge of running inference in the browser is the strict memory limitatio
 
 {{< video src="/clips/wllama_streaming/transformers_oom_fast.mp4" >}}
 
-Below is a memory usage figure from the paper showing the OOM from running a different model.
+Below is a memory usage figure from our [Llamas on the Web paper](https://arxiv.org/abs/2605.20706) showing the OOM from running a different model.
 
 {{< figure src="/images/wllama_streaming/memory_comparison.svg" class="media-figure" alt="Memory usage over time for wllama, WebLLM, Transformers.js, and upstream wllama across four browser and hardware configurations. On Safari with an Apple M4 Pro, Transformers.js reaches an out-of-memory failure." caption="Our figure from the paper shows Transformers.js being killed by Safari due to OOM." >}}
 
