@@ -11,6 +11,8 @@ Modular has a set of [GPU puzzles](https://puzzles.modular.com/introduction.html
 
 My solutions are [available here.](https://github.com/nikhilJain17/mojo-gpu-puzzles/tree/main)
 
+## GPU Basics
+
 ### Problem 1: Map
 - Use `unsafe_offset` for pointer arithmetic
 - `TileTensor` makes index math (N-dim arrays, strides, padding, offsets) so simple
@@ -57,7 +59,15 @@ My solutions are [available here.](https://github.com/nikhilJain17/mojo-gpu-puzz
 ### Problem 12: Dot Product via Parallel Reduction
 - Instead of reducing sequentially like in a single-threaded program, you can reduce in parallel!
 
+{{< figure src="/images/mojo_gpu_puzzles/parallel_reduction.png" class="media-figure" alt="Halve the input array at each iteration." >}}
+
 ### Problem 13: 1D Convolution
 - For handling values that spill over blocks, just yank the extra values and store them in shared memory for your workgroup ahead of time
+{{< figure src="/images/mojo_gpu_puzzles/pooling_across_workgroups.png" class="media-figure" alt="Pooling." >}}
+
+## Algorithms
 
 ### Problem 14: Parallel Prefix Scan
+
+{{< figure src="/images/mojo_gpu_puzzles/parallel_prefix_sum.png" class="media-figure" alt="Double offset at each iteration." >}}
+
