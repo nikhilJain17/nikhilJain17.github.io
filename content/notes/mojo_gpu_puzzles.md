@@ -71,3 +71,38 @@ My solutions are [available here.](https://github.com/nikhilJain17/mojo-gpu-puzz
 
 {{< figure src="/images/mojo_gpu_puzzles/parallel_prefix_sum.png" class="media-figure" alt="Double offset at each iteration." >}}
 
+This is the first algorithm where you really have to change your way of thinking from sequential to parallel. 
+For an array of size $n$, we iterate $\log{2}{n}$ times to calculate $arr[i] = arr[i-offset]$, doubling $offset$ at each iteration.
+The intuition is that at each step, the value at index $k$ knows about twice as many values as it did last iteration, looking backwards from index $k$.
+
+
+Here is a brief sketch of a proof:
+
+**Claim:** After iteration $k$, each thread $i$ holds the sum of up to $2^k$ elements in the range $[\max(0, i-2^k+1), i]$.
+
+**Base case:** At iteration $0$, each thread $i$ only knows about its own value at index $i$ (i.e., the array is unmodified).
+
+**Inductive step:** Assume the claim is true for iteration $k$. Then thread $i$ holds the sum of elements in the range
+
+$$
+[\max(0, i-2^k+1), i]
+$$
+
+and thread $i-2^k$ holds the sum of elements in the range
+
+$$
+[\max(0, (i-2^k)-2^k+1), i-2^k]
+= [\max(0, i-2^{k+1}+1), i-2^k].
+$$
+
+Notice that these ranges are adjacent, nonoverlapping, and both contain $2^k$ elements (unless truncated due to indexing). So at iteration $k+1$, thread $i$ adds thread $i-2^k$'s sum to its current sum, obtaining the sum of elements in the range
+
+$$
+[\max(0, i-2^{k+1}+1), i].
+$$
+
+Thus, the claim holds for iteration $k+1$.
+
+If $i < 2^k$, there is no thread $i-2^k$. However, thread $i$ already holds the sum of all elements from index $0$ to $i$, so the claim still holds.
+
+**Conclusion:** After $\lceil \log_2 n \rceil$ iterations, $2^k \ge n$, so every thread $i$ holds the sum of elements from index $0$ to $i$. Therefore, the algorithm computes the correct prefix sums.
