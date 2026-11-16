@@ -4,6 +4,7 @@ draft = false
 title = 'Some notes from Mojo GPU Puzzles'
 summary = 'Working through Mojo GPU puzzles'
 tags = ['mojo', 'gpu-kernels', 'gpu']
+math = true
 +++
 
 # Introduction
@@ -72,7 +73,7 @@ My solutions are [available here.](https://github.com/nikhilJain17/mojo-gpu-puzz
 {{< figure src="/images/mojo_gpu_puzzles/parallel_prefix_sum.png" class="media-figure" alt="Double offset at each iteration." >}}
 
 This is the first algorithm where you really have to change your way of thinking from sequential to parallel. 
-For an array of size $n$, we iterate $\log{2}{n}$ times to calculate $arr[i] = arr[i-offset]$, doubling $offset$ at each iteration.
+For an array of size $n$, we iterate $\lceil \log_2 n \rceil$ times to calculate $arr[i] = arr[i] + arr[i-offset]$ for $i \ge offset$, using values from the previous iteration and doubling $offset$ at each iteration.
 The intuition is that at each step, the value at index $k$ knows about twice as many values as it did last iteration, looking backwards from index $k$.
 
 
