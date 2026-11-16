@@ -107,3 +107,8 @@ Thus, the claim holds for iteration $k+1$.
 If $i < 2^k$, there is no thread $i-2^k$. However, thread $i$ already holds the sum of all elements from index $0$ to $i$, so the claim still holds.
 
 **Conclusion:** After $\lceil \log_2 n \rceil$ iterations, $2^k \ge n$, so every thread $i$ holds the sum of elements from index $0$ to $i$. Therefore, the algorithm computes the correct prefix sums.
+
+### Problem 15: Axis Sum
+Basically multiple parallel reductions.
+
+{{< figure src="/images/mojo_gpu_puzzles/axis_sum.png" class="media-figure" alt="Multiple parallel reductions, zooming in on one in particular." >}}
