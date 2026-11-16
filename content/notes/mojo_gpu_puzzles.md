@@ -12,20 +12,22 @@ Modular has a set of [GPU puzzles](https://puzzles.modular.com/introduction.html
 
 My solutions are [available here.](https://github.com/nikhilJain17/mojo-gpu-puzzles/tree/main)
 
-**Jump to:** [15: Axis Sum](#problem-15-axis-sum) ·
-[14: Parallel Prefix Scan](#problem-14-parallel-prefix-scan) ·
-[13: 1D Convolution](#problem-13-1d-convolution) ·
-[12: Dot Product via Parallel Reduction](#problem-12-dot-product-via-parallel-reduction) ·
-[11: Pooling](#problem-11-pooling) ·
-[10, 9](#problems-10-9) ·
-[8: Shared memory](#problem-8-shared-memory) ·
-[7: 2D Blocks](#problem-7-2d-blocks) ·
-[6: Blocks](#problem-6-blocks) ·
-[5: Broadcast](#problem-5-broadcast) ·
-[4: 2D Map](#problem-4-2d-map) ·
-[3: Guards](#problem-3-guards) ·
-[2: Zip](#problem-2-zip) ·
-[1: Map](#problem-1-map)
+**Jump to:**
+
+- [15: Axis Sum](#problem-15-axis-sum)
+- [14: Parallel Prefix Scan](#problem-14-parallel-prefix-scan)
+- [13: 1D Convolution](#problem-13-1d-convolution)
+- [12: Dot Product via Parallel Reduction](#problem-12-dot-product-via-parallel-reduction)
+- [11: Pooling](#problem-11-pooling)
+- [10, 9](#problems-10-9)
+- [8: Shared memory](#problem-8-shared-memory)
+- [7: 2D Blocks](#problem-7-2d-blocks)
+- [6: Blocks](#problem-6-blocks)
+- [5: Broadcast](#problem-5-broadcast)
+- [4: 2D Map](#problem-4-2d-map)
+- [3: Guards](#problem-3-guards)
+- [2: Zip](#problem-2-zip)
+- [1: Map](#problem-1-map)
 
 ## Problem 15: Axis Sum
 
